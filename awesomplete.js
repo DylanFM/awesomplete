@@ -25,7 +25,7 @@ var _ = function (input, o) {
 		filter: _.FILTER_CONTAINS,
 		sort: _.SORT_BYLENGTH,
 		item: function (text, input) {
-			return $.create("li", {
+			return $.create("li.list-group-item", {
 				innerHTML: text.replace(RegExp($.regExpEscape(input.trim()), "gi"), "<mark>$&</mark>"),
 				"aria-selected": "false"
 			});
@@ -45,6 +45,7 @@ var _ = function (input, o) {
 	});
 
 	this.ul = $.create("ul", {
+    className: "list-group",
 		hidden: "",
 		inside: this.container
 	});
