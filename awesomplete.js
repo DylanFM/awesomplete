@@ -181,7 +181,7 @@ _.prototype = {
 		if (this.selected) {
       current = lis[this.index];
 			current.setAttribute("aria-selected", "false");
-      current.className = current.className.replace(/active/, '');
+      current.className = current.className.replace(/list-group-item-info/, '');
 		}
 
 		this.index = i;
@@ -189,7 +189,7 @@ _.prototype = {
 		if (i > -1 && lis.length > 0) {
       li = lis[i];
 			li.setAttribute("aria-selected", "true");
-      li.className = li.className + " active";
+      li.className = li.className + " list-group-item-info";
 			this.status.textContent = lis[i].textContent;
 		}
 
