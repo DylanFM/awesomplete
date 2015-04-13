@@ -175,16 +175,21 @@ _.prototype = {
 
 	// Should not be used, highlights specific item without any checks!
 	goto: function (i) {
-		var lis = this.ul.children;
+		var lis = this.ul.children,
+        current, li;
 
 		if (this.selected) {
-			lis[this.index].setAttribute("aria-selected", "false");
+      current = lis[this.index];
+			current.setAttribute("aria-selected", "false");
+      current.className = current.className.replace(/active/, '');
 		}
 
 		this.index = i;
 
 		if (i > -1 && lis.length > 0) {
-			lis[i].setAttribute("aria-selected", "true");
+      li = lis[i];
+			li.setAttribute("aria-selected", "true");
+      li.className = li.className + " active";
 			this.status.textContent = lis[i].textContent;
 		}
 
